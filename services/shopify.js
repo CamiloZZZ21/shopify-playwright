@@ -7,7 +7,13 @@ async function sendOrder(order) {
         {
             channel: "chrome",
             headless: false,
-            viewport: null
+            viewport: null,
+
+            proxy: {
+                server: "http://31.59.20.176:6754",
+                username: "eumzhnro",
+                password: "w28978m84oqv"
+            }
         }
     );
 
@@ -67,6 +73,8 @@ async function sendOrder(order) {
     }).click();
 
     console.log("Pedido enviado.");
+
+    await context.close();
 
     return {
         success: true
