@@ -2,20 +2,15 @@ const { chromium } = require("playwright");
 
 async function sendOrder(order) {
 
-    const context = await chromium.launchPersistentContext(
-        "./profile",
-        {
-            channel: "chrome",
-            headless: false,
-            viewport: null,
-
-            proxy: {
-                server: "http://31.59.20.176:6754",
-                username: "eumzhnro",
-                password: "w28978m84oqv"
-            }
-        }
-    );
+const context = await chromium.launchPersistentContext(
+    "/home/camilo/.config/google-chrome",
+    {
+        channel: "chrome",
+        headless: false,
+        viewport: null,
+        slowMo: 300
+    }
+);
 
     const page = context.pages()[0] || await context.newPage();
 
